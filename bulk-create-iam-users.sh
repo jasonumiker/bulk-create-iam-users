@@ -37,7 +37,7 @@ create_user() {
 }
 
 # The loop where we iterate through the job
-for (( c=0; c<=NumberOfUsers; c++ ))
+for (( c=1; c<=NumberOfUsers; c++ ))
 do
   # Create the User
   create_user ${Users[$c-1]} ${Passwords[$c-1]} FullAdmins
