@@ -22,7 +22,7 @@ done
 # We need 30 random passwords for those users - setting up the array
 for (( c=1; c<=$NumberOfUsers; c++ ))
 do
-   Passwords[c-1]=$(openssl rand -base64 12)
+   Passwords[c-1]=$(openssl rand -hex 64 | fold -w 10)
 done
 
 # The create_user function - we'll call this each time to create the user
