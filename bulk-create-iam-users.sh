@@ -5,7 +5,7 @@
 
 set -e
 
-NumberOfUsers=30
+NumberOfUsers=20
 
 # Create the Full Admins IAM Group
 aws iam create-group --group-name FullAdmins
@@ -22,7 +22,7 @@ done
 # We need 30 random passwords for those users - setting up the array
 for (( c=1; c<=$NumberOfUsers; c++ ))
 do
-   Passwords[c-1]=$(openssl rand -hex 64 | cut -c1-10)
+   Passwords[c-1]=$(./pwgen.py)
 done
 
 # The create_user function - we'll call this each time to create the user
